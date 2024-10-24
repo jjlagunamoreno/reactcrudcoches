@@ -23,7 +23,7 @@ export default class Update extends Component {
         let marca = this.cajaMarca.current.value;
         let modelo = this.cajaModelo.current.value;
         let conductor = this.cajaConductor.current.value;
-        let imagen = encodeURIComponent(this.cajaImagen.current.value); // Codificar la imagen antes de enviarla
+        let imagen = decodeURIComponent(this.cajaImagen.current.value); // DECODIFICA la URL antes de enviarla
 
         let coche = {
             idCoche: id,

@@ -38,12 +38,12 @@ export default class Home extends Component {
                 <table>
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            {/* <th>ID</th> */}
                             <th>MARCA</th>
-                            <th>MODELO</th>
-                            <th>CONDUCTOR</th>
+                            {/* <th>MODELO</th>
+                            <th>CONDUCTOR</th> */}
                             <th>IMAGEN</th>
-                            <th></th>
+                            <th>OPCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,13 +51,18 @@ export default class Home extends Component {
                             this.state.coches.map((coche, index) => {
                                 return (
                                     <tr key={index} value={coche.idCoche}>
-                                        <td>{coche.idCoche}</td>
+                                        {/* <td>{coche.idCoche}</td> */}
                                         <td>{coche.marca}</td>
-                                        <td>{coche.modelo}</td>
-                                        <td>{coche.conductor}</td>
+                                        {/* <td>{coche.modelo}</td>
+                                        <td>{coche.conductor}</td> */}
                                         <td><img src={coche.imagen} style={{ width: "25%" }} /></td>
                                         <td>
                                             <div className="d-flex gap-2">
+                                                <NavLink to={"/details/" + coche.idCoche}>
+                                                    <button className='btn btn-success'>Details</button>
+                                                </NavLink>
+
+                                                {/* Escogemos uncodeURIComponent para guardar la url entera de la imagen con todos sus caracteres */}
                                                 <NavLink to={
                                                     "/update/" + coche.idCoche + "/" + coche.marca + "/" + coche.modelo + "/" + coche.conductor + "/" + encodeURIComponent(coche.imagen)
                                                 }>
